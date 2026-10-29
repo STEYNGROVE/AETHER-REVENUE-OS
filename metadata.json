@@ -1,0 +1,6 @@
+{
+  "name": "Autonomous Ethical Cybersecurity Revenue OS",
+  "description": "Autonomous cybersecurity research workforce with authorization enforcement, expected net value optimization, machine-verifiable evidence, sandbox validation, and continuous learning.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

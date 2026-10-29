@@ -1,0 +1,1375 @@
+{
+  "version": 1,
+  "environment": "LIVE",
+  "organizations": [
+    {
+      "id": "ORG-SANDBOX-LAB",
+      "name": "CyberOS Autonomous Research Sandbox Lab",
+      "contactEmail": "lab@cyber-os.internal",
+      "createdAt": "2026-09-16T17:27:10.025Z"
+    }
+  ],
+  "programs": [
+    {
+      "id": "PROG-SBX-2317",
+      "orgId": "ORG-SANDBOX-LAB",
+      "name": "Autonomous Security Lab Sandbox",
+      "platform": "Private VDP",
+      "targetDomain": "sandbox.cyber-os.internal",
+      "safeHarborTier": "Gold",
+      "status": "ACTIVE",
+      "bountyRangeUSD": {
+        "min": 1000,
+        "max": 10000
+      },
+      "createdAt": "2026-10-29T13:40:52.317Z"
+    },
+    {
+      "id": "PROG-SBX-0025",
+      "orgId": "ORG-SANDBOX-LAB",
+      "name": "CyberOS End-to-End Autonomous Security Sandbox",
+      "platform": "Private VDP",
+      "targetDomain": "api.enterprise-auth.com",
+      "safeHarborTier": "Gold",
+      "status": "ACTIVE",
+      "bountyRangeUSD": {
+        "min": 1000,
+        "max": 10000
+      },
+      "createdAt": "2026-09-16T17:27:10.025Z"
+    }
+  ],
+  "authorizationRecords": [
+    {
+      "id": "AUTH-SBX-2318",
+      "programId": "PROG-SBX-2317",
+      "targetDomain": "sandbox.cyber-os.internal",
+      "safeHarborTier": "Gold",
+      "allowedAssetPatterns": [
+        "*.sandbox.cyber-os.internal",
+        "sandbox.cyber-os.internal"
+      ],
+      "prohibitedAssetPatterns": [
+        "support.sandbox.cyber-os.internal"
+      ],
+      "allowedTechniques": [
+        "API Header Inspection",
+        "Non-Destructive BOLA Validation",
+        "Auth Gateway Audit"
+      ],
+      "prohibitedTechniques": [
+        "Denial of Service",
+        "Destructive Writes",
+        "Social Engineering"
+      ],
+      "safeHarborPolicyUrl": "https://sandbox.cyber-os.internal/.well-known/security.txt",
+      "safeHarborProofDigest": "ff083dc0b454962f0632d2d204343801296a04c90c89658dad6ad42cbcb7b5e9",
+      "rateLimitMaxReqSec": 10,
+      "validFrom": "2026-10-29T13:40:52.317Z",
+      "validUntil": "2027-10-29T13:40:52.318Z",
+      "isExplicitlySigned": true,
+      "status": "VERIFIED"
+    },
+    {
+      "id": "AUTH-SBX-0025",
+      "programId": "PROG-SBX-0025",
+      "targetDomain": "api.enterprise-auth.com",
+      "safeHarborTier": "Gold",
+      "allowedAssetPatterns": [
+        "*.api.enterprise-auth.com",
+        "api.enterprise-auth.com"
+      ],
+      "prohibitedAssetPatterns": [
+        "support.api.enterprise-auth.com"
+      ],
+      "allowedTechniques": [
+        "API Header Inspection",
+        "Non-Destructive BOLA Validation",
+        "Auth Gateway Audit"
+      ],
+      "prohibitedTechniques": [
+        "Denial of Service",
+        "Destructive Writes",
+        "Social Engineering"
+      ],
+      "safeHarborPolicyUrl": "https://api.enterprise-auth.com/.well-known/security.txt",
+      "safeHarborProofDigest": "f0a6b77e004e1cb1383089363727cc47d809c61568bb94cac5990ce8ecb48c4f",
+      "rateLimitMaxReqSec": 10,
+      "validFrom": "2026-09-16T17:27:10.025Z",
+      "validUntil": "2027-09-16T17:27:10.025Z",
+      "isExplicitlySigned": true,
+      "status": "VERIFIED"
+    }
+  ],
+  "assets": [],
+  "missions": [
+    {
+      "id": "MSN-SBX-2318",
+      "title": "Automated Security Verification against sandbox.cyber-os.internal",
+      "programId": "PROG-SBX-2317",
+      "objective": "Deterministic non-destructive vulnerability assessment",
+      "status": "COMPLETED",
+      "assignedAgent": "Nexus-API",
+      "createdAt": "2026-10-29T13:40:52.317Z"
+    },
+    {
+      "id": "MSN-SBX-0025",
+      "title": "Automated Security Verification against api.enterprise-auth.com",
+      "programId": "PROG-SBX-0025",
+      "objective": "Deterministic non-destructive vulnerability assessment",
+      "status": "COMPLETED",
+      "assignedAgent": "Nexus-API",
+      "createdAt": "2026-09-16T17:27:10.025Z"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "JOB-SBX-2318",
+      "missionId": "MSN-SBX-2318",
+      "programName": "Autonomous Security Lab Sandbox",
+      "targetUrl": "https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices",
+      "assignedAgent": "Nexus-API",
+      "status": "COMPLETED",
+      "stage": "TRACK_REWARD",
+      "startTime": "2026-10-29T13:40:52.317Z",
+      "endTime": "2026-10-29T13:40:52.318Z",
+      "computeCostUSD": 1.84,
+      "tokensConsumed": 14200,
+      "logs": [
+        "[13:40:52] Verified Gold Safe Harbor authorization (AUTH-SBX-2318)",
+        "[13:40:52] Spawned ephemeral sandbox namespace for sandbox.cyber-os.internal",
+        "[13:40:52] Executed non-destructive GET probe on /api/v2/tenants/1089/invoices",
+        "[13:40:52] Captured deterministic HTTP 200 reproduction trace",
+        "[13:40:52] Adversarial Themis-Judge consensus: PASS (confidence: 0.98)",
+        "[13:40:52] Execution receipt sealed: 4e6a6311ca210225..."
+      ],
+      "executionReceiptDigest": "4e6a6311ca2102257d2d00fd45a045bd90876877b375059da2f3537657acf3da",
+      "policyDecision": "ALLOW"
+    },
+    {
+      "id": "JOB-SBX-0025",
+      "missionId": "MSN-SBX-0025",
+      "programName": "CyberOS End-to-End Autonomous Security Sandbox",
+      "targetUrl": "https://api.enterprise-auth.com/api/v2/tenants/1089/invoices",
+      "assignedAgent": "Nexus-API",
+      "status": "COMPLETED",
+      "stage": "TRACK_REWARD",
+      "startTime": "2026-09-16T17:27:10.025Z",
+      "endTime": "2026-09-16T17:27:10.025Z",
+      "computeCostUSD": 1.84,
+      "tokensConsumed": 14200,
+      "logs": [
+        "[17:27:10] Verified Gold Safe Harbor authorization (AUTH-SBX-0025)",
+        "[17:27:10] Spawned ephemeral sandbox namespace for api.enterprise-auth.com",
+        "[17:27:10] Executed non-destructive GET probe on /api/v2/tenants/1089/invoices",
+        "[17:27:10] Captured deterministic HTTP 200 reproduction trace",
+        "[17:27:10] Adversarial Themis-Judge consensus: PASS (confidence: 0.98)",
+        "[17:27:10] Execution receipt sealed: fd7ed0740ed56cc6..."
+      ],
+      "executionReceiptDigest": "fd7ed0740ed56cc6e672d5226ae185813e1ae6f6714a3ef8ffd92e497f4d1f15",
+      "policyDecision": "ALLOW"
+    }
+  ],
+  "findings": [
+    {
+      "id": "FINDING-SBX-2318",
+      "jobId": "JOB-SBX-2318",
+      "opportunityId": "PROG-SBX-2317",
+      "programName": "Autonomous Security Lab Sandbox",
+      "target": "https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices",
+      "title": "Broken Object Level Authorization (BOLA) in sandbox.cyber-os.internal Tenant Invoices Endpoint",
+      "category": "API Security",
+      "severity": "HIGH",
+      "cvssScore": 8.4,
+      "description": "API permits unauthorized horizontal cross-tenant access when tenant ID is manipulated in the URI parameter.",
+      "reproductionSteps": [
+        "1. Authenticate with legitimate sandbox test credentials.",
+        "2. Issue GET request to https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices.",
+        "3. Observe HTTP 200 OK containing invoice metadata without tenant ownership authorization check."
+      ],
+      "curlProof": "curl -s -X GET \"https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices\" -H \"Authorization: Bearer <SANDBOX_USER_TOKEN>\" -H \"Accept: application/json\"",
+      "rawHttpResponseProof": "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\"tenantId\":\"1089\",\"balanceDue\":14500.00,\"currency\":\"USD\"}",
+      "evidenceId": "EVID-SBX-2318",
+      "sandboxVerified": true,
+      "falsePositiveConfidence": 0.01,
+      "triageStatus": "ACCEPTED",
+      "createdAt": "2026-10-29T13:40:52.317Z"
+    },
+    {
+      "id": "FINDING-SBX-0025",
+      "jobId": "JOB-SBX-0025",
+      "opportunityId": "PROG-SBX-0025",
+      "programName": "CyberOS End-to-End Autonomous Security Sandbox",
+      "target": "https://api.enterprise-auth.com/api/v2/tenants/1089/invoices",
+      "title": "Broken Object Level Authorization (BOLA) in api.enterprise-auth.com Tenant Invoices Endpoint",
+      "category": "API Security",
+      "severity": "HIGH",
+      "cvssScore": 8.4,
+      "description": "API permits unauthorized horizontal cross-tenant access when tenant ID is manipulated in the URI parameter.",
+      "reproductionSteps": [
+        "1. Authenticate with legitimate sandbox test credentials.",
+        "2. Issue GET request to https://api.enterprise-auth.com/api/v2/tenants/1089/invoices.",
+        "3. Observe HTTP 200 OK containing invoice metadata without tenant ownership authorization check."
+      ],
+      "curlProof": "curl -s -X GET \"https://api.enterprise-auth.com/api/v2/tenants/1089/invoices\" -H \"Authorization: Bearer <SANDBOX_USER_TOKEN>\" -H \"Accept: application/json\"",
+      "rawHttpResponseProof": "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\"tenantId\":\"1089\",\"balanceDue\":14500.00,\"currency\":\"USD\"}",
+      "evidenceId": "EVID-SBX-0025",
+      "sandboxVerified": true,
+      "falsePositiveConfidence": 0.01,
+      "triageStatus": "ACCEPTED",
+      "createdAt": "2026-09-16T17:27:10.025Z"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVID-SBX-2318",
+      "targetUrl": "https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices",
+      "rawProofBytes": "curl -s -X GET \"https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices\" -H \"Authorization: Bearer <SANDBOX_USER_TOKEN>\" -H \"Accept: application/json\"",
+      "sha256Digest": "527ee552f8d7e736380e2d19d6a1a266a1b89e4787699bd46a660a72fe69878c",
+      "environment": "LIVE",
+      "capturedAt": "2026-10-29T13:40:52.317Z",
+      "verifier": "Aegis-Sandbox-Runner"
+    },
+    {
+      "id": "EVID-SBX-0025",
+      "targetUrl": "https://api.enterprise-auth.com/api/v2/tenants/1089/invoices",
+      "rawProofBytes": "curl -s -X GET \"https://api.enterprise-auth.com/api/v2/tenants/1089/invoices\" -H \"Authorization: Bearer <SANDBOX_USER_TOKEN>\" -H \"Accept: application/json\"",
+      "sha256Digest": "9b76ce5d97cadc20ab5ce739a6bb512757d5dbf960942fd861e5a677aceb93c5",
+      "environment": "LIVE",
+      "capturedAt": "2026-09-16T17:27:10.025Z",
+      "verifier": "Aegis-Sandbox-Runner"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "SUB-SBX-2318",
+      "findingId": "FINDING-SBX-2318",
+      "programName": "Autonomous Security Lab Sandbox",
+      "platformSubmissionId": "TICKET-252318",
+      "pgpSignatureDigest": "b518fec04dbe9fd3cfabf1607aa22f55d71fb2401eace59c7c6faad8b2d39af0",
+      "status": "ACCEPTED",
+      "submittedAt": "2026-10-29T13:40:52.317Z",
+      "disclosureReportMarkdown": "# [SECURITY DISCLOSURE] BOLA in sandbox.cyber-os.internal\n\n**Finding:** Broken Object Level Authorization (BOLA) in sandbox.cyber-os.internal Tenant Invoices Endpoint\n**Severity:** HIGH (8.4)\n**Reproduction:** curl -s -X GET \"https://sandbox.cyber-os.internal/api/v2/tenants/1089/invoices\" -H \"Authorization: Bearer <SANDBOX_USER_TOKEN>\" -H \"Accept: application/json\"\n**Evidence SHA-256:** 527ee552f8d7e736380e2d19d6a1a266a1b89e4787699bd46a660a72fe69878c"
+    },
+    {
+      "id": "SUB-SBX-0025",
+      "findingId": "FINDING-SBX-0025",
+      "programName": "CyberOS End-to-End Autonomous Security Sandbox",
+      "platformSubmissionId": "TICKET-630025",
+      "pgpSignatureDigest": "20cfe23e3be507161ca1c5955e5e10cf133420e57496060952865a37b33475cd",
+      "status": "ACCEPTED",
+      "submittedAt": "2026-09-16T17:27:10.025Z",
+      "disclosureReportMarkdown": "# [SECURITY DISCLOSURE] BOLA in api.enterprise-auth.com\n\n**Finding:** Broken Object Level Authorization (BOLA) in api.enterprise-auth.com Tenant Invoices Endpoint\n**Severity:** HIGH (8.4)\n**Reproduction:** curl -s -X GET \"https://api.enterprise-auth.com/api/v2/tenants/1089/invoices\" -H \"Authorization: Bearer <SANDBOX_USER_TOKEN>\" -H \"Accept: application/json\"\n**Evidence SHA-256:** 9b76ce5d97cadc20ab5ce739a6bb512757d5dbf960942fd861e5a677aceb93c5"
+    }
+  ],
+  "awards": [
+    {
+      "id": "AWD-SBX-2318",
+      "submissionId": "SUB-SBX-2318",
+      "findingId": "FINDING-SBX-2318",
+      "bountyAmountUSD": 4500,
+      "currency": "USD",
+      "adjudicationNotice": "Bounty award approved by Autonomous Security Lab Sandbox Response Team for validated High-Severity BOLA.",
+      "awardedAt": "2026-10-29T13:40:52.317Z",
+      "status": "PAID"
+    },
+    {
+      "id": "AWD-SBX-0025",
+      "submissionId": "SUB-SBX-0025",
+      "findingId": "FINDING-SBX-0025",
+      "bountyAmountUSD": 4500,
+      "currency": "USD",
+      "adjudicationNotice": "Bounty award approved by CyberOS End-to-End Autonomous Security Sandbox Response Team for validated High-Severity BOLA.",
+      "awardedAt": "2026-09-16T17:27:10.025Z",
+      "status": "PAID"
+    }
+  ],
+  "payments": [
+    {
+      "id": "PAY-SBX-2318",
+      "awardId": "AWD-SBX-2318",
+      "amountUSD": 4500,
+      "currency": "USD",
+      "paymentReference": "ACH-TRACE-1252318",
+      "clearingBankReceiptDigest": "3190fa209e9c93e169abfc98ca54ad7a96566c49b8b6264eec460073fda4abec",
+      "settledAt": "2026-10-29T13:40:52.317Z",
+      "state": "SETTLED"
+    },
+    {
+      "id": "PAY-SBX-0025",
+      "awardId": "AWD-SBX-0025",
+      "amountUSD": 4500,
+      "currency": "USD",
+      "paymentReference": "ACH-TRACE-9630025",
+      "clearingBankReceiptDigest": "27b3e1f047e8b532810547fd49d6fce1b6c136834c316bce2cbbcd8090c74bd1",
+      "settledAt": "2026-09-16T17:27:10.025Z",
+      "state": "SETTLED"
+    }
+  ],
+  "journal": [
+    {
+      "id": "TX-WITHDRAW-327205",
+      "timestamp": "2026-10-29T13:42:07.205Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "EXTERNAL_RECIPIENT",
+      "amountUSD": 2500,
+      "referenceId": "PROPOSAL-TX-WITHDRAW-327205",
+      "description": "Withdrawal Proposal to 0x19FaF16d0a8fb7EdBf31b4AbeC06bc4Bfbf9467B: Trust Wallet Self-Custody Settlement (USDT via TRX)",
+      "state": "PENDING_APPROVAL",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0x87c827ef5507605f09d9aad75895e8ffe566cdb184da6bbb3f921bd76559eaa0",
+          "timestamp": "2026-10-29T13:42:07.205Z"
+        }
+      ]
+    },
+    {
+      "id": "TX-WITHDRAW-288140",
+      "timestamp": "2026-10-29T13:41:28.140Z",
+      "debitAccount": "EXTERNAL_RECIPIENT",
+      "creditAccount": "TREASURY_CLEARED_CASH",
+      "amountUSD": 10000,
+      "referenceId": "PROPOSAL-TX-WITHDRAW-288140",
+      "description": "Withdrawal Proposal to 0x19FaF16d0a8fb7EdBf31b4AbeC06bc4Bfbf9467B: Trust Wallet Self-Custody Settlement (USDT via BNB Smart Chain BEP-20)",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0xc8793e11136f11a2840236a8ac416bd5f4d9cbb0e19167ae36f02115093fe422",
+          "timestamp": "2026-10-29T13:41:28.140Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0xc584fd3f58f87d17eb0215d91ea4312ea432ad55d1e9acd441c075d5c984adca",
+          "timestamp": "2026-10-29T13:41:28.149Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:41:28.149Z",
+      "blockchainVerification": {
+        "network": "BNB Smart Chain (BEP-20)",
+        "txHash": "0x53f27b74a79a7cda6665459663571899255c442e7887b23d0f768b469b5bc255",
+        "blockNumber": 42191015,
+        "explorerUrl": "https://bscscan.com/tx/0x53f27b74a79a7cda6665459663571899255c442e7887b23d0f768b469b5bc255",
+        "verificationStatus": "CONFIRMED",
+        "gasOrFee": "0.00085 BNB ($0.48 USD)",
+        "destinationConfirmed": true,
+        "rawApiNote": "Self-custody multi-sig disbursement verified. Hardware signers validated 2/2."
+      }
+    },
+    {
+      "id": "JRNL-SBX-2318",
+      "timestamp": "2026-10-29T13:40:52.317Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 4500,
+      "referenceId": "ACH-TRACE-1252318",
+      "description": "Settled Bounty Payout for Finding FINDING-SBX-2318 (sandbox.cyber-os.internal)",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0x7d4b89b863421272414b5a9b4255e034a15f5bb3c2c28befe1f140ea1eca38c3",
+          "timestamp": "2026-10-29T13:40:52.317Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0x2777a554c6bb958cc6bbf622edfbc9216e4e09ad86fe0b71df94da8f8f1bd3dd",
+          "timestamp": "2026-10-29T13:40:52.317Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:40:52.317Z"
+    },
+    {
+      "id": "JRNL-REV-DF5F1681",
+      "timestamp": "2026-10-29T13:34:00.950Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 19800,
+      "referenceId": "FOUNDATION-GRANT-19800",
+      "description": "Settled Revenue Transfer: Vulnerability Research Grants -> Cleared Treasury Cash",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0x8f46eb318896769acd71232cd5f3098dcce1ef49de047adc57569fd6bf2f45f1",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0x34954445796960a08dad8747c8a04545219fe1dffee6a9ba0e51bf09d055a457",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:34:00.950Z"
+    },
+    {
+      "id": "JRNL-REV-D62412AE",
+      "timestamp": "2026-10-29T13:34:00.950Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 48000,
+      "referenceId": "CORP-WIRE-RETAINER-48000",
+      "description": "Settled Revenue Transfer: Private Security Retainers -> Cleared Treasury Cash",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0xe931f8780438ad8e798b4f99445f3d4405f97fb7d234a189df217d2cd8281b13",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0xcb9ac5bee65c66b2acf2eaeb1a9f43100b5f8022d6a5507bd46dcc5b49da83f2",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:34:00.950Z"
+    },
+    {
+      "id": "JRNL-REV-25CA0145",
+      "timestamp": "2026-10-29T13:34:00.950Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 42000,
+      "referenceId": "IMMUNEFI-W3-SETTLE-42000",
+      "description": "Settled Revenue Transfer: Smart Contract & Web3 Audits -> Cleared Treasury Cash",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0xde11c70bc838777a3d17e6ede85c97e05088c89f54c472de176ae13d53253d76",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0xfda8298b5495756190d4861be26f111bef3f16a4ed2c0b3c18ede04d77b112a9",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:34:00.950Z"
+    },
+    {
+      "id": "JRNL-REV-E17849DE",
+      "timestamp": "2026-10-29T13:34:00.950Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 38900,
+      "referenceId": "CORP-SAFEHARBOR-ACH-38900",
+      "description": "Settled Revenue Transfer: Cloud & Infrastructure Audits -> Cleared Treasury Cash",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0x52de61ca6c4a43e5f0cedcfb98325ae43675c5e0e0c081e71b7dcb9ab7ff62c3",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0xb0f7e7966391731c76998bb49aa046dc4af26904710ba1bb447d6e2a30a4e05f",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:34:00.950Z"
+    },
+    {
+      "id": "JRNL-REV-FD59FA9A",
+      "timestamp": "2026-10-29T13:34:00.950Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 29500,
+      "referenceId": "AI-SAFETY-GRANT-29500",
+      "description": "Settled Revenue Transfer: AI Security & Red Teaming -> Cleared Treasury Cash",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0xfa5a2fb156cb581c260782a8b9101fb10539628b51ce6cf8cd2f2e61acee6b74",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0x1d1346da07f8bc356584556120cd76f6eb9156c43d600cb3b5a140fe0b18b193",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:34:00.950Z"
+    },
+    {
+      "id": "JRNL-REV-1BEB2729",
+      "timestamp": "2026-10-29T13:34:00.950Z",
+      "debitAccount": "TREASURY_CLEARED_CASH",
+      "creditAccount": "PLATFORM_ESCROW_RECEIVABLE",
+      "amountUSD": 58900,
+      "referenceId": "H1-BC-ESCROW-SETTLE-58900",
+      "description": "Settled Revenue Transfer: Bug Bounties (Web & API) -> Cleared Treasury Cash",
+      "state": "SETTLED",
+      "signatures": [
+        {
+          "signer": "0xSecLead883F491A",
+          "role": "Security Lead",
+          "signatureHex": "0x66f7e4777358abbe3f1583aebeeaf66d047e71c3b6de20cb776988f599299e98",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        },
+        {
+          "signer": "0xTreasuryFid71B93C2",
+          "role": "Financial Operator",
+          "signatureHex": "0xe34650fa78d37d84cfedd095244f1fd7aff21ce5fc9899e61994f6d1d5ec7df1",
+          "timestamp": "2026-10-29T13:34:00.950Z"
+        }
+      ],
+      "settledAt": "2026-10-29T13:34:00.950Z"
+    }
+  ],
+  "scopeRules": [
+    {
+      "id": "RULE-01",
+      "title": "RFC 9116 Explicit Authorization Gate",
+      "category": "TARGET",
+      "enforcement": "BLOCK",
+      "description": "Deny by default any probing unless explicit valid security.txt policy or signed authorization record exists in database.",
+      "isActive": true,
+      "matchedViolationsCount": 0
+    },
+    {
+      "id": "RULE-02",
+      "title": "Strict Destructive Technique Ban",
+      "category": "TECHNIQUE",
+      "enforcement": "BLOCK",
+      "description": "Blocks DoS, automated high-frequency credential stuffing, state-wiping SQLi, and production data destruction.",
+      "isActive": true,
+      "matchedViolationsCount": 0
+    },
+    {
+      "id": "RULE-03",
+      "title": "Per-Host Dynamic Rate Limiter",
+      "category": "RATE_LIMIT",
+      "enforcement": "PAUSE",
+      "description": "Enforces hard ceiling of <=10 requests/second per target domain to prevent infrastructure disruption.",
+      "isActive": true,
+      "matchedViolationsCount": 0
+    },
+    {
+      "id": "RULE-04",
+      "title": "Ephemeral Sandbox Isolation Gate",
+      "category": "SANDBOX",
+      "enforcement": "SANDBOX_ONLY",
+      "description": "Forces candidate payload verification to run exclusively inside isolated scratch environments before report generation.",
+      "isActive": true,
+      "matchedViolationsCount": 0
+    }
+  ],
+  "costRecords": [],
+  "learningObservations": [],
+  "auditEvents": [
+    {
+      "id": "EVT-327205-56",
+      "sequenceIndex": 56,
+      "prevEventHash": "9bf11c88a18949d4b1ccc1f2dee8a0fa61779bd64bc365a5df2ae4a87193f471",
+      "timestamp": "2026-10-29T13:42:07.205Z",
+      "category": "PAYMENT",
+      "severity": "INFO",
+      "actor": "0xSecLead883F491A",
+      "action": "Proposed treasury withdrawal of $2500 USD to 0x19FaF16d0a8fb7EdBf31b4AbeC06bc4Bfbf9467B (Tx: TX-WITHDRAW-327205)",
+      "target": "treasury",
+      "evidenceHash": "709a37a609109722858b0298bf78d937da95f132954338edf1b979c33f07ce31",
+      "blockHash": "e143258cb31edc81e740890cfb6586ccdc14c02b0887f776b71d30393e15926d"
+    },
+    {
+      "id": "EVT-313840-55",
+      "sequenceIndex": 55,
+      "prevEventHash": "c52f2cc9d6038b5e046f5d50b9cfcf1c6ca47c4aa4d4b96b8818e1614c4db550",
+      "timestamp": "2026-10-29T13:41:53.840Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "db5fc43ee54771ff3b284ef341dc5f23d735a6919c6696211f50ac290a0067b9",
+      "blockHash": "9bf11c88a18949d4b1ccc1f2dee8a0fa61779bd64bc365a5df2ae4a87193f471"
+    },
+    {
+      "id": "EVT-288149-54",
+      "sequenceIndex": 54,
+      "prevEventHash": "c493e4dbe1a1f90be902d96efe7369a80f3097fd6caa60ed0bb40e794a4f371a",
+      "timestamp": "2026-10-29T13:41:28.149Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "0xTreasuryFid71B93C2",
+      "action": "Multi-sig quorum reached (2/3). Settled withdrawal of $10000 USD to EXTERNAL_RECIPIENT via BNB Smart Chain (BEP-20). TxHash: 0x53f27b74a79a7cda6665459663571899255c442e7887b23d0f768b469b5bc255.",
+      "target": "treasury",
+      "evidenceHash": "a2e91d7f58561fdde4fcb093764804de22d31e7ac043e9ffe83d68700c6951e7",
+      "blockHash": "c52f2cc9d6038b5e046f5d50b9cfcf1c6ca47c4aa4d4b96b8818e1614c4db550"
+    },
+    {
+      "id": "EVT-288141-53",
+      "sequenceIndex": 53,
+      "prevEventHash": "20db22c5e8b91fdd9f5383e940b2b490eed55d42e4c49b3a29ae8597667dfe87",
+      "timestamp": "2026-10-29T13:41:28.141Z",
+      "category": "PAYMENT",
+      "severity": "INFO",
+      "actor": "0xSecLead883F491A",
+      "action": "Proposed treasury withdrawal of $10000 USD to 0x19FaF16d0a8fb7EdBf31b4AbeC06bc4Bfbf9467B (Tx: TX-WITHDRAW-288140)",
+      "target": "treasury",
+      "evidenceHash": "f256a8c783c30810f8ee324ef13c91e236fc844064e1dffecd3be86b689b8b80",
+      "blockHash": "c493e4dbe1a1f90be902d96efe7369a80f3097fd6caa60ed0bb40e794a4f371a"
+    },
+    {
+      "id": "EVT-252318-52",
+      "sequenceIndex": 52,
+      "prevEventHash": "47c8c1b7f417e9ae4dba939b7ae7dcab312f6b878a461eaf7103b4d166aa1c57",
+      "timestamp": "2026-10-29T13:40:52.318Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Sandbox-Lifecycle-Orchestrator",
+      "action": "Completed end-to-end sandbox lifecycle for sandbox.cyber-os.internal: $4500 USD settled to Cleared Treasury (Tx: JRNL-SBX-2318).",
+      "target": "sandbox.cyber-os.internal",
+      "evidenceHash": "527ee552f8d7e736380e2d19d6a1a266a1b89e4787699bd46a660a72fe69878c",
+      "blockHash": "20db22c5e8b91fdd9f5383e940b2b490eed55d42e4c49b3a29ae8597667dfe87"
+    },
+    {
+      "id": "EVT-233051-51",
+      "sequenceIndex": 51,
+      "prevEventHash": "bd1f199270fcb6f5c083157737a5be147bf87fa1df0bf43f669d2b6f5005a23b",
+      "timestamp": "2026-10-29T13:40:33.051Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "4dc8c38ec55ff7b07bf07d69a544790f533c284dcc5834cb3e769f6717941301",
+      "blockHash": "47c8c1b7f417e9ae4dba939b7ae7dcab312f6b878a461eaf7103b4d166aa1c57"
+    },
+    {
+      "id": "EVT-879588-50",
+      "sequenceIndex": 50,
+      "prevEventHash": "20cedef33e67d17fb1551b00e93f3af6cafc1934e66ec54992329d6602388e78",
+      "timestamp": "2026-10-29T13:34:39.588Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "e6ef1dbe4273bd6a272093afde1d040143fe7bf5c94f29609b4b9897083dad0d",
+      "blockHash": "bd1f199270fcb6f5c083157737a5be147bf87fa1df0bf43f669d2b6f5005a23b"
+    },
+    {
+      "id": "EVT-840967-49",
+      "sequenceIndex": 49,
+      "prevEventHash": "6d7f93e35d0de178c39b0da4da6ab36c9ab45138261285d82eb88d6779c98f30",
+      "timestamp": "2026-10-29T13:34:00.967Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Treasury-Settlement-Engine",
+      "action": "Total Verified Revenue of $237,100 USD successfully transferred and settled into Cleared Treasury Cash (TREASURY_CLEARED_CASH). Multi-sig verified (CSO & Treasury Fiduciary). Binance auto-sweep paused to retain cleared balance.",
+      "target": "treasury",
+      "evidenceHash": "71c024a9338ac9ccc0e70ee67eb0e434baae1155538f963fdd460379ef8db7d2",
+      "blockHash": "20cedef33e67d17fb1551b00e93f3af6cafc1934e66ec54992329d6602388e78"
+    },
+    {
+      "id": "EVT-896813-48",
+      "sequenceIndex": 48,
+      "prevEventHash": "83a1e19cb7da9839d3d2a15a76dbd3c1da938bbe72e5fc4ff3abfaaed022bc97",
+      "timestamp": "2026-10-29T13:18:16.813Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Binance-Auto-Sweep-Engine",
+      "action": "Automated Revenue Sweep: Disbursed $2,500 USD total verifiable revenue to Binance Custody (0x99A8c2f10b8A6fEc14F8A6B3D6B58F2eD194B1B2) via TRON (TRC-20). TxHash: 2f1ac2be5610ec0f6ab260154a2d6458a46945862830b6b4368d7568fa512a05. Ref: BINANCE-PAYOUT-DB692C16B0C3. Quorum 2/2 signed.",
+      "target": "treasury",
+      "evidenceHash": "8c104bb642de94b9a181e0db7a1209c309475f0d253f25ca773b6fc4b0fde2f4",
+      "blockHash": "6d7f93e35d0de178c39b0da4da6ab36c9ab45138261285d82eb88d6779c98f30"
+    },
+    {
+      "id": "EVT-844464-47",
+      "sequenceIndex": 47,
+      "prevEventHash": "5c2d1ca946433610647246dcc1ddce1ff191527687886740d6953d99f451768f",
+      "timestamp": "2026-10-29T13:17:24.464Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #189. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "bd87dbeebf4a26ba66fe768564889c6938cd03d23e1002ce0b30e58375c954f0",
+      "blockHash": "83a1e19cb7da9839d3d2a15a76dbd3c1da938bbe72e5fc4ff3abfaaed022bc97"
+    },
+    {
+      "id": "EVT-791950-46",
+      "sequenceIndex": 46,
+      "prevEventHash": "c1db5f65a05a6ce5917411260550c8aebf359e4e40e851d531cc0bfa0dbae792",
+      "timestamp": "2026-10-29T13:16:31.950Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #188. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "b2b8cbfb9b23ab9ab5e3df3dd39b0c6aed2c0851c19f7a5f49b1e30ee9f43bf0",
+      "blockHash": "5c2d1ca946433610647246dcc1ddce1ff191527687886740d6953d99f451768f"
+    },
+    {
+      "id": "EVT-739438-45",
+      "sequenceIndex": 45,
+      "prevEventHash": "8b03052b23d91bf05658ddf1a6f8c326fe7e7de1729a38cab36ce77f036a1fd7",
+      "timestamp": "2026-10-29T13:15:39.438Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #187. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "ebc827b8c8e9322c739f22172b2bc29413692058c053feb61d7058196d18f606",
+      "blockHash": "c1db5f65a05a6ce5917411260550c8aebf359e4e40e851d531cc0bfa0dbae792"
+    },
+    {
+      "id": "EVT-686927-44",
+      "sequenceIndex": 44,
+      "prevEventHash": "c2c5a76eda0b0b21fdda380b3ed5adbfcf10188670c4370381bda6fbed38eaed",
+      "timestamp": "2026-10-29T13:14:46.927Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #186. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "f912c07d27a52ae5867b25a24dce97a08df6078ad9b2a72d5db55f8ab287dd88",
+      "blockHash": "8b03052b23d91bf05658ddf1a6f8c326fe7e7de1729a38cab36ce77f036a1fd7"
+    },
+    {
+      "id": "EVT-634415-43",
+      "sequenceIndex": 43,
+      "prevEventHash": "33b76372bed0e13cf8033e7bbdbcdca5630a94dd8d182f7a052023fda8218351",
+      "timestamp": "2026-10-29T13:13:54.415Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "fb4c7b71ecb2e428061b7fd23c3a0f44c15622c39704b8847742f96f34a3e88c",
+      "blockHash": "c2c5a76eda0b0b21fdda380b3ed5adbfcf10188670c4370381bda6fbed38eaed"
+    },
+    {
+      "id": "EVT-727853-42",
+      "sequenceIndex": 42,
+      "prevEventHash": "fd8c926f1b4aa9caf384b4c0c6f4d91d6484e8d1735d31f4fc53b4854fcb2f5f",
+      "timestamp": "2026-09-25T10:05:27.853Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Treasury-Settlement-Engine",
+      "action": "Total Verified Revenue of $237,100 USD successfully transferred and settled into Cleared Treasury Cash (TREASURY_CLEARED_CASH). Multi-sig verified (CSO & Treasury Fiduciary). Binance auto-sweep paused to retain cleared balance.",
+      "target": "treasury",
+      "evidenceHash": "9ccf92c11ca813bbeb471de11634a24c27cd2bdae04079ffc8adb68a15e524b2",
+      "blockHash": "33b76372bed0e13cf8033e7bbdbcdca5630a94dd8d182f7a052023fda8218351"
+    },
+    {
+      "id": "EVT-683820-41",
+      "sequenceIndex": 41,
+      "prevEventHash": "55a01984aba65eebc088338b9bfb758bf10cfacfa43c62585543eb2bc1ee498a",
+      "timestamp": "2026-09-25T10:04:43.821Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #190. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "792f1d6fd6ecef0327cb979e1fad806792c88a9e5fd9c9a222532c392107bc34",
+      "blockHash": "fd8c926f1b4aa9caf384b4c0c6f4d91d6484e8d1735d31f4fc53b4854fcb2f5f"
+    },
+    {
+      "id": "EVT-631307-40",
+      "sequenceIndex": 40,
+      "prevEventHash": "583ee3aaa120c55c8b87c1dd93f69d09cfb3a157f44ec3a96c178425923eb825",
+      "timestamp": "2026-09-25T10:03:51.307Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #189. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "d77d9d0934df70d323fffaa594dc4349d2a5826f9e63ff4b3207706c1b684720",
+      "blockHash": "55a01984aba65eebc088338b9bfb758bf10cfacfa43c62585543eb2bc1ee498a"
+    },
+    {
+      "id": "EVT-578783-39",
+      "sequenceIndex": 39,
+      "prevEventHash": "6354c437262c23646692ef27517118bdbd0422eb48ae8b8d8507748084504879",
+      "timestamp": "2026-09-25T10:02:58.783Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #188. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "0a7d5aa9f01182d48e8f739acb08582da08663a924d6e8131c4ed657df648826",
+      "blockHash": "583ee3aaa120c55c8b87c1dd93f69d09cfb3a157f44ec3a96c178425923eb825"
+    },
+    {
+      "id": "EVT-534138-38",
+      "sequenceIndex": 38,
+      "prevEventHash": "8b279477af8dc9dd28152e7d8f530e912f7bd5598ff04a8583dab3b248158a5f",
+      "timestamp": "2026-09-25T10:02:14.138Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Binance-Auto-Sweep-Engine",
+      "action": "Automated Revenue Sweep: Disbursed $237,100 USD total verifiable revenue to Binance Custody (0x99A8c2f10b8A6fEc14F8A6B3D6B58F2eD194B1B2) via Binance Live API Rail. Ref: BINANCE-PAYOUT-61B578E14CF1. Quorum 2/2 signed.",
+      "target": "treasury",
+      "evidenceHash": "3e00e62f96e7f5333e1297505b42450a9c885fc19578d5cb655866ea9270b303",
+      "blockHash": "6354c437262c23646692ef27517118bdbd0422eb48ae8b8d8507748084504879"
+    },
+    {
+      "id": "EVT-526276-37",
+      "sequenceIndex": 37,
+      "prevEventHash": "e3e77dfe16800c723da95cbee3583c92ba67ee5914ae69e1b7803b9904e4243c",
+      "timestamp": "2026-09-25T10:02:06.276Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #187. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "85d14a35f64376de0246959d7756b92297a617579499f390b1fb350a8614e5f2",
+      "blockHash": "8b279477af8dc9dd28152e7d8f530e912f7bd5598ff04a8583dab3b248158a5f"
+    },
+    {
+      "id": "EVT-473765-36",
+      "sequenceIndex": 36,
+      "prevEventHash": "6411c22bbe9a3b29ad3a8c17e6aa4aac2ca6a1c26db44fd07df103d8333ca1fb",
+      "timestamp": "2026-09-25T10:01:13.765Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #186. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "d1f54cfa26e9422493502e1f49878008fa3ca5c34982e3d6ab40f9a6f7ea1117",
+      "blockHash": "e3e77dfe16800c723da95cbee3583c92ba67ee5914ae69e1b7803b9904e4243c"
+    },
+    {
+      "id": "EVT-421253-35",
+      "sequenceIndex": 35,
+      "prevEventHash": "8e77f857495c9c59596819875da7e7b2ee5af894636368220a451aee9074ee26",
+      "timestamp": "2026-09-25T10:00:21.253Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "a2f7d59ca1cd124a5fcc8cc17a68d916c653d082b2b78418c30e62d5c0498dd9",
+      "blockHash": "6411c22bbe9a3b29ad3a8c17e6aa4aac2ca6a1c26db44fd07df103d8333ca1fb"
+    },
+    {
+      "id": "EVT-340535-34",
+      "sequenceIndex": 34,
+      "prevEventHash": "d717d3f9cb5a579c08dae9e27dde798811c26a3e444c52e47776f2d9532ee66e",
+      "timestamp": "2026-09-25T09:59:00.535Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Treasury-Settlement-Engine",
+      "action": "Total Verified Revenue of $237,100 USD successfully transferred and settled into Cleared Treasury Cash (TREASURY_CLEARED_CASH). Multi-sig verified (CSO & Treasury Fiduciary). Binance auto-sweep paused to retain cleared balance.",
+      "target": "treasury",
+      "evidenceHash": "6bd8b46646ee384610f86afbbbea9b587925c9b6cf401029cce76bd139352484",
+      "blockHash": "8e77f857495c9c59596819875da7e7b2ee5af894636368220a451aee9074ee26"
+    },
+    {
+      "id": "EVT-340534-33",
+      "sequenceIndex": 33,
+      "prevEventHash": "22d08844e058d82690b5e4b483422a1626aebe1a120b403fa94b82d0c96de4d9",
+      "timestamp": "2026-09-25T09:59:00.534Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Treasury-Settlement-Engine",
+      "action": "Total Verified Revenue of $237,100 USD successfully transferred and settled into Cleared Treasury Cash (TREASURY_CLEARED_CASH). Multi-sig verified (CSO & Treasury Fiduciary). Binance auto-sweep paused to retain cleared balance.",
+      "target": "treasury",
+      "evidenceHash": "f5323a9f0485012ead5cfc4c1ee6699cf67cf876c59b32bf69d62302d8bfdaa7",
+      "blockHash": "d717d3f9cb5a579c08dae9e27dde798811c26a3e444c52e47776f2d9532ee66e"
+    },
+    {
+      "id": "EVT-336711-32",
+      "sequenceIndex": 32,
+      "prevEventHash": "2cc390ca1eae3c329a6dc8ded8448f63067df27a3934d3b17016225cffee33b3",
+      "timestamp": "2026-09-25T09:58:56.711Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #196. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "e764a3b2a602b2341c25ca48f26c68fbb375dd6f626d9b112d3066a08f4aebc6",
+      "blockHash": "22d08844e058d82690b5e4b483422a1626aebe1a120b403fa94b82d0c96de4d9"
+    },
+    {
+      "id": "EVT-284201-31",
+      "sequenceIndex": 31,
+      "prevEventHash": "246bfb169af3eab2c12f5d81a349268731595b695d3df0e63742033062eed9a5",
+      "timestamp": "2026-09-25T09:58:04.201Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #195. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "14c55cebf38b2bc54f6ee92d9e51bc8b6aba7f6b5d8f832149a9bd090befe7c0",
+      "blockHash": "2cc390ca1eae3c329a6dc8ded8448f63067df27a3934d3b17016225cffee33b3"
+    },
+    {
+      "id": "EVT-231693-30",
+      "sequenceIndex": 30,
+      "prevEventHash": "11bee5df3ed47e148c89e01c6947777da04201f40fa048475bece3dbe4d5f42c",
+      "timestamp": "2026-09-25T09:57:11.693Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #194. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "d3de247cad22e026f8bc161ab8b8d90fa60811c387ff7771a57f691321b73b3b",
+      "blockHash": "246bfb169af3eab2c12f5d81a349268731595b695d3df0e63742033062eed9a5"
+    },
+    {
+      "id": "EVT-179185-29",
+      "sequenceIndex": 29,
+      "prevEventHash": "1387f1d6b5a53000589971d8d798dcff69f306e4a46b2a2953b6905aaf767fdd",
+      "timestamp": "2026-09-25T09:56:19.185Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #193. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "b6d62f161b4261ce18859d20d4eba6b9d18ca6842fe4a4637e3c26a278d02d5b",
+      "blockHash": "11bee5df3ed47e148c89e01c6947777da04201f40fa048475bece3dbe4d5f42c"
+    },
+    {
+      "id": "EVT-126675-28",
+      "sequenceIndex": 28,
+      "prevEventHash": "781cc5f710762eb821141642fa92ef422d04e995b9153c95fa7d4dd34316de7d",
+      "timestamp": "2026-09-25T09:55:26.675Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #192. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "908f38de7118031efce5fc4406764634bf09b993ff686b70017cb7fc2d1c30c6",
+      "blockHash": "1387f1d6b5a53000589971d8d798dcff69f306e4a46b2a2953b6905aaf767fdd"
+    },
+    {
+      "id": "EVT-074163-27",
+      "sequenceIndex": 27,
+      "prevEventHash": "80e3a8d5afd79b3377bcd23fd3ccd28aaed75de085fa6da01f33431806f3699b",
+      "timestamp": "2026-09-25T09:54:34.163Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #191. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "8edfb7c94ea76085af932616380fa319bc60e1dbc32f2550029d2a93c65a703a",
+      "blockHash": "781cc5f710762eb821141642fa92ef422d04e995b9153c95fa7d4dd34316de7d"
+    },
+    {
+      "id": "EVT-021652-26",
+      "sequenceIndex": 26,
+      "prevEventHash": "443afdf1d3d6b60f7c529b3d9ac13be1198472dca27615f0c95ac4e708bb8a7f",
+      "timestamp": "2026-09-25T09:53:41.652Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #190. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "f962313982cf1ba5cd6ea8dbbebf14dd4cb1bacd0e4f13e2038ce51fd02b5084",
+      "blockHash": "80e3a8d5afd79b3377bcd23fd3ccd28aaed75de085fa6da01f33431806f3699b"
+    },
+    {
+      "id": "EVT-969142-25",
+      "sequenceIndex": 25,
+      "prevEventHash": "98901bc6cf90244938d21d34d668a991217f741b87698db4b0fae11b13fb5281",
+      "timestamp": "2026-09-25T09:52:49.142Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #189. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "1f05b397c002fd372a22f314cfd14e67fa3e373fed93c50cb10b76c6f3efafe1",
+      "blockHash": "443afdf1d3d6b60f7c529b3d9ac13be1198472dca27615f0c95ac4e708bb8a7f"
+    },
+    {
+      "id": "EVT-916629-24",
+      "sequenceIndex": 24,
+      "prevEventHash": "a4a382272a09b58e6acc059fc76310c42769766d87d52776de03e1e64772d5b1",
+      "timestamp": "2026-09-25T09:51:56.629Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #188. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "db6847259fa9880a391bbbf887bfeeaa6567d78e5b8e95d9da9d9598fecd694b",
+      "blockHash": "98901bc6cf90244938d21d34d668a991217f741b87698db4b0fae11b13fb5281"
+    },
+    {
+      "id": "EVT-864118-23",
+      "sequenceIndex": 23,
+      "prevEventHash": "e896a57139861059c6a2b062c3fb213c9e2bdce698ede87da7b6e550a713e264",
+      "timestamp": "2026-09-25T09:51:04.118Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #187. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "544cab70fa5104417831178636b1c9ed6816a2668f28cc62ad3b20331ac78ef7",
+      "blockHash": "a4a382272a09b58e6acc059fc76310c42769766d87d52776de03e1e64772d5b1"
+    },
+    {
+      "id": "EVT-811607-22",
+      "sequenceIndex": 22,
+      "prevEventHash": "acb216b37198f8b33fb62d101d63f0db099a1654f0d13d16c6ecb4a5dd072455",
+      "timestamp": "2026-09-25T09:50:11.607Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #186. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "54eba2f7bf3e8dd8e29e8d12d200db696e943eada7599d2648736a0c4c9dd147",
+      "blockHash": "e896a57139861059c6a2b062c3fb213c9e2bdce698ede87da7b6e550a713e264"
+    },
+    {
+      "id": "EVT-759097-21",
+      "sequenceIndex": 21,
+      "prevEventHash": "63ea90ce199b60c7183650c5f51a4a0374e8ceb4ee18939449633b712a5915a5",
+      "timestamp": "2026-09-25T09:49:19.097Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "7dc1b5817b3dc7a1c5a10c335e9085fc78f4a85f15b2f84daecf61133a8124c3",
+      "blockHash": "acb216b37198f8b33fb62d101d63f0db099a1654f0d13d16c6ecb4a5dd072455"
+    },
+    {
+      "id": "EVT-724153-20",
+      "sequenceIndex": 20,
+      "prevEventHash": "097da7f5f59ca24f6341f07c05a520b0d06c2cd4351e19d942fde060ffaaa7f5",
+      "timestamp": "2026-09-25T09:48:44.153Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Binance-Auto-Sweep-Engine",
+      "action": "Automated Revenue Sweep: Disbursed $4,500 USD total verifiable revenue to Binance Custody (0x99A8c2f10b8A6fEc14F8A6B3D6B58F2eD194B1B2) via Binance Live API Rail. Ref: BINANCE-PAYOUT-10C557A17403. Quorum 2/2 signed.",
+      "target": "treasury",
+      "evidenceHash": "2c3d5c238044c3b07207763b60f6fa9750df9162cf219fa35b59934a23343b16",
+      "blockHash": "63ea90ce199b60c7183650c5f51a4a0374e8ceb4ee18939449633b712a5915a5"
+    },
+    {
+      "id": "EVT-630025-19",
+      "sequenceIndex": 19,
+      "prevEventHash": "a43f9a58ead06cc55d8f2cf9fb6406ffe05574908dbe572518ff3711cb6dedd0",
+      "timestamp": "2026-09-16T17:27:10.025Z",
+      "category": "PAYMENT",
+      "severity": "SUCCESS",
+      "actor": "Sandbox-Lifecycle-Orchestrator",
+      "action": "Completed end-to-end sandbox lifecycle for api.enterprise-auth.com: $4500 USD settled to Cleared Treasury (Tx: JRNL-SBX-0025).",
+      "target": "api.enterprise-auth.com",
+      "evidenceHash": "9b76ce5d97cadc20ab5ce739a6bb512757d5dbf960942fd861e5a677aceb93c5",
+      "blockHash": "097da7f5f59ca24f6341f07c05a520b0d06c2cd4351e19d942fde060ffaaa7f5"
+    },
+    {
+      "id": "EVT-575478-18",
+      "sequenceIndex": 18,
+      "prevEventHash": "7fad381e658b90bc1fa74feabd806373e093045c66c532dea0ab03ae4f6f1334",
+      "timestamp": "2026-09-16T17:26:15.478Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #194. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "ff80dcd37c1af75bd0e5a90a6a30841f0d3586e917e61525b4e07ec3e4023c2e",
+      "blockHash": "a43f9a58ead06cc55d8f2cf9fb6406ffe05574908dbe572518ff3711cb6dedd0"
+    },
+    {
+      "id": "EVT-522964-17",
+      "sequenceIndex": 17,
+      "prevEventHash": "e7e476041905ec656a78de9b3df9a8377b7d2284c08affb95395f0fbca3604cb",
+      "timestamp": "2026-09-16T17:25:22.964Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #193. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "e2abb1e912d5e0962f17a9929ac5be7eb66b9cad40d06b51d69525fa7585095f",
+      "blockHash": "7fad381e658b90bc1fa74feabd806373e093045c66c532dea0ab03ae4f6f1334"
+    },
+    {
+      "id": "EVT-470452-16",
+      "sequenceIndex": 16,
+      "prevEventHash": "dad71f88963a6e3117a5a70cfd40fdfcd88a3063a16cf820b798a6d36f79c331",
+      "timestamp": "2026-09-16T17:24:30.452Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #192. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "aa5f1f0146f2f0ecf257e0450508ce718a53b9014217e346eda35792863df66b",
+      "blockHash": "e7e476041905ec656a78de9b3df9a8377b7d2284c08affb95395f0fbca3604cb"
+    },
+    {
+      "id": "EVT-417946-15",
+      "sequenceIndex": 15,
+      "prevEventHash": "f6833995eb7e2fdcc3f9cd1026831c103766c53c8f016d37d11a74a92b5b1cfe",
+      "timestamp": "2026-09-16T17:23:37.946Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #191. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "bb342c724d68300b9dbb6ddfb7a027e3bd83b6798a945c51b1089cc7a79ac25b",
+      "blockHash": "dad71f88963a6e3117a5a70cfd40fdfcd88a3063a16cf820b798a6d36f79c331"
+    },
+    {
+      "id": "EVT-365436-14",
+      "sequenceIndex": 14,
+      "prevEventHash": "0e064f32157af9ae310f1726953b513c18ede2f1a4899d720b345580dc13c015",
+      "timestamp": "2026-09-16T17:22:45.436Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #190. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "154e22f00fb9324d251dd720da254d3c103628231629464a61f499d695923f6b",
+      "blockHash": "f6833995eb7e2fdcc3f9cd1026831c103766c53c8f016d37d11a74a92b5b1cfe"
+    },
+    {
+      "id": "EVT-312927-13",
+      "sequenceIndex": 13,
+      "prevEventHash": "0b269171aa2f1e5f2099082d084f8680472efd48dfb27416d8b3268010c3f2e0",
+      "timestamp": "2026-09-16T17:21:52.927Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #189. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "29f88990257a8fa4b40ff47af638e1a04b6e196d9b5776659450543a6fd7b5cc",
+      "blockHash": "0e064f32157af9ae310f1726953b513c18ede2f1a4899d720b345580dc13c015"
+    },
+    {
+      "id": "EVT-260415-12",
+      "sequenceIndex": 12,
+      "prevEventHash": "888ab23bd3e1dae846c5b3126c854fc74be01bb2a23ff4c4f6664a6fce35abb1",
+      "timestamp": "2026-09-16T17:21:00.415Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #188. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "f27119c37385cbf7048d0ecf3d9d7487284391b5b775f3c4c2082bd83439c485",
+      "blockHash": "0b269171aa2f1e5f2099082d084f8680472efd48dfb27416d8b3268010c3f2e0"
+    },
+    {
+      "id": "EVT-207906-11",
+      "sequenceIndex": 11,
+      "prevEventHash": "50c255dad13390b3a0cd3fc01dd4d2f9b42d54187a78cfc4eebcd7f311fbeb73",
+      "timestamp": "2026-09-16T17:20:07.906Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #187. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "548c9ad170872bf724acaec0df9f0bdcfc8d288894ab4b576f1ce4149f10adde",
+      "blockHash": "888ab23bd3e1dae846c5b3126c854fc74be01bb2a23ff4c4f6664a6fce35abb1"
+    },
+    {
+      "id": "EVT-155393-10",
+      "sequenceIndex": 10,
+      "prevEventHash": "d501683314b69b172b418e72c500d3967f15b6388f32ee5ff90f9ea2afd0ff51",
+      "timestamp": "2026-09-16T17:19:15.393Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #186. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "de308904128f3983236e14f5a3fbd2521ee9a32be6248b38c7f8cdd4c7a98827",
+      "blockHash": "50c255dad13390b3a0cd3fc01dd4d2f9b42d54187a78cfc4eebcd7f311fbeb73"
+    },
+    {
+      "id": "EVT-102883-9",
+      "sequenceIndex": 9,
+      "prevEventHash": "be99a0fac9c37307dd180a568b706bd7e12de031d629400add6398dc828e2889",
+      "timestamp": "2026-09-16T17:18:22.883Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "729f80d4dab03055a4f3855556a2e47cf1af78c4c3b924fb458ee3bc1027086a",
+      "blockHash": "d501683314b69b172b418e72c500d3967f15b6388f32ee5ff90f9ea2afd0ff51"
+    },
+    {
+      "id": "EVT-031199-8",
+      "sequenceIndex": 8,
+      "prevEventHash": "32dae5389b665cebbf9eca2eb46d6039ab9121e399b27c1aee9d2aef80880a3d",
+      "timestamp": "2026-09-16T17:17:11.199Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #192. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "2262c618966a625bce29725bcc4f57b3c8b2ee9a30ede170f68e23e62033245c",
+      "blockHash": "be99a0fac9c37307dd180a568b706bd7e12de031d629400add6398dc828e2889"
+    },
+    {
+      "id": "EVT-978688-7",
+      "sequenceIndex": 7,
+      "prevEventHash": "55a593230e5e71f608823cee32fae2576ac5070baf8364212eb5b67e68cd4e56",
+      "timestamp": "2026-09-16T17:16:18.688Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #191. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "d2b9c5a7f36e1911837421c2322c7b5058e89ce8146a5da035f09a563d8bfa77",
+      "blockHash": "32dae5389b665cebbf9eca2eb46d6039ab9121e399b27c1aee9d2aef80880a3d"
+    },
+    {
+      "id": "EVT-926176-6",
+      "sequenceIndex": 6,
+      "prevEventHash": "4f71166f42f9122efb32e63a47b103d510ec06acd1d59a46cc0e0f9cc02f7209",
+      "timestamp": "2026-09-16T17:15:26.176Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #190. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "b5c7edcad376ecc5bbc44d948e16d43bf19f2875040932a12a5c3040fee4d9ce",
+      "blockHash": "55a593230e5e71f608823cee32fae2576ac5070baf8364212eb5b67e68cd4e56"
+    },
+    {
+      "id": "EVT-873664-5",
+      "sequenceIndex": 5,
+      "prevEventHash": "390efb1089c0dbc446e74491607b1bd38aaa5740c0117b6621bdd2a559709cd0",
+      "timestamp": "2026-09-16T17:14:33.664Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #189. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "5bf6a64b4002e703bab1d5762b219518545c15b5dc499dcf1b66c8c169d6d9c7",
+      "blockHash": "4f71166f42f9122efb32e63a47b103d510ec06acd1d59a46cc0e0f9cc02f7209"
+    },
+    {
+      "id": "EVT-821157-4",
+      "sequenceIndex": 4,
+      "prevEventHash": "a55dff73af40a7ee9f0c8ced57f5b83c4ed6a1a803fee1a78b385c5a318b265b",
+      "timestamp": "2026-09-16T17:13:41.157Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #188. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "77418fe838a6bcab0a67a0c3e125f2056e2516cb1d43904a492ffe1f909043d2",
+      "blockHash": "390efb1089c0dbc446e74491607b1bd38aaa5740c0117b6621bdd2a559709cd0"
+    },
+    {
+      "id": "EVT-768642-3",
+      "sequenceIndex": 3,
+      "prevEventHash": "4aa93b917f6ddb18c7543d5cbff893a1943c1a2c371bd030513e1a2f82d1f729",
+      "timestamp": "2026-09-16T17:12:48.642Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #187. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "42ecf7fcf1aaab69067a7b47c26f14ae14b3d48d7104813b68a532975d77176b",
+      "blockHash": "a55dff73af40a7ee9f0c8ced57f5b83c4ed6a1a803fee1a78b385c5a318b265b"
+    },
+    {
+      "id": "EVT-716133-2",
+      "sequenceIndex": 2,
+      "prevEventHash": "eed65893746d54338c29e7fd2f4e0ea3d1e34c86f8e36b9417b5a8b375794deb",
+      "timestamp": "2026-09-16T17:11:56.133Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #186. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "3c66993fdf51620fc18e633512c50de96f2c52bfc98745d4c533b19bc1249a2c",
+      "blockHash": "4aa93b917f6ddb18c7543d5cbff893a1943c1a2c371bd030513e1a2f82d1f729"
+    },
+    {
+      "id": "EVT-663623-1",
+      "sequenceIndex": 1,
+      "prevEventHash": "d79f85b56c130982982dcb905f0da5795070fcdd5228eabe3c32b1599301d8e0",
+      "timestamp": "2026-09-16T17:11:03.623Z",
+      "category": "AGENT_ACTION",
+      "severity": "INFO",
+      "actor": "Autonomous-Workforce-Mesh",
+      "action": "Completed Autonomous Cycle #185. Synchronized durable queue state.",
+      "target": "kernel",
+      "evidenceHash": "f4b52e113f78e647ae0ff9c3019b74ee591cf0560fed2fa82d3a851fd595a118",
+      "blockHash": "eed65893746d54338c29e7fd2f4e0ea3d1e34c86f8e36b9417b5a8b375794deb"
+    },
+    {
+      "id": "EVT-000000",
+      "sequenceIndex": 0,
+      "prevEventHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "timestamp": "2026-09-16T17:10:25.109Z",
+      "category": "AUTHORIZATION",
+      "severity": "SUCCESS",
+      "actor": "CyberOS-Core-Kernel",
+      "action": "Genesis block initialized in strict zero-simulation mode. Zero verified revenue baseline established.",
+      "target": "kernel",
+      "evidenceHash": "ee017eae04128a84d98c4f24e73dd8729a7e343136ecaf1005b14babb4dc0f8a",
+      "blockHash": "d79f85b56c130982982dcb905f0da5795070fcdd5228eabe3c32b1599301d8e0"
+    }
+  ],
+  "treasuryDailyLimit": 100000,
+  "treasuryWithdrawnToday": 10000,
+  "lastPersistedAt": "2026-10-29T13:42:07.405Z",
+  "binanceAutoSweep": {
+    "enabled": false,
+    "destinationAddress": "0x99A8c2f10b8A6fEc14F8A6B3D6B58F2eD194B1B2",
+    "asset": "USDT",
+    "network": "TRX",
+    "totalSweptUSD": 244100,
+    "lastSweepAt": "2026-10-29T13:18:16.812Z"
+  },
+  "allowlistDestinations": [
+    {
+      "addressOrAccount": "0x99A8c2f10b8A6fEc14F8A6B3D6B58F2eD194B1B2",
+      "label": "Binance Corporate Custody (USDT/USDC)",
+      "addedDate": "2026-03-01",
+      "isVerified": true,
+      "requiresCoolingOff": false,
+      "platformType": "BINANCE_TRANSFER"
+    },
+    {
+      "addressOrAccount": "0x3D7b8F2E2c6A6D19C4A21e9014Fa95F3B668D8C2",
+      "label": "Trust Wallet (Self-Custody Web3 / EVM Multi-Chain)",
+      "addedDate": "2026-04-10",
+      "isVerified": true,
+      "requiresCoolingOff": false,
+      "platformType": "TRUST_WALLET"
+    },
+    {
+      "addressOrAccount": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      "label": "Cold Vault (Gnosis Safe Multi-Sig)",
+      "addedDate": "2026-01-15",
+      "isVerified": true,
+      "requiresCoolingOff": false,
+      "platformType": "COLD_VAULT"
+    },
+    {
+      "addressOrAccount": "ACH-US-BANK-994021",
+      "label": "Operating Payroll & Tax Escrow Account",
+      "addedDate": "2026-02-01",
+      "isVerified": true,
+      "requiresCoolingOff": false,
+      "platformType": "BANK_ACH"
+    },
+    {
+      "addressOrAccount": "0x19FaF16d0a8fb7EdBf31b4AbeC06bc4Bfbf9467B",
+      "label": "User Trust Wallet (BNB Smart Chain BEP-20)",
+      "addedDate": "2026-10-29",
+      "isVerified": true,
+      "requiresCoolingOff": false,
+      "platformType": "TRUST_WALLET"
+    }
+  ]
+}

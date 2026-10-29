@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "TreasuryState": {
+      "title": "Treasury State",
+      "description": "Authoritative state of the treasury and double-entry ledger",
+      "type": "object",
+      "properties": {
+        "clearedBalance": { "type": "number", "description": "Cleared treasury cash balance in USD" },
+        "pendingTriageEscrow": { "type": "number", "description": "Funds held in triage escrow in USD" },
+        "totalSweptUSD": { "type": "number", "description": "Total amount swept to external custody in USD" },
+        "lastUpdated": { "type": "string", "format": "date-time", "description": "Last timestamp when state was updated" }
+      },
+      "required": ["clearedBalance", "pendingTriageEscrow", "lastUpdated"]
+    },
+    "DoubleEntryJournal": {
+      "title": "Double Entry Journal",
+      "description": "Immutable double-entry cryptographic journal transactions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique transaction ID" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "debitAccount": { "type": "string", "description": "Debited account" },
+        "creditAccount": { "type": "string", "description": "Credited account" },
+        "amountUSD": { "type": "number", "description": "Amount in USD" },
+        "referenceId": { "type": "string" },
+        "description": { "type": "string" },
+        "state": { "type": "string", "enum": ["PENDING_APPROVAL", "COOLING_OFF", "SETTLED", "REJECTED"] },
+        "settledAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "timestamp", "debitAccount", "creditAccount", "amountUSD", "state"]
+    },
+    "AuditEvent": {
+      "title": "Audit Event",
+      "description": "Cryptographically chained audit events",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sequenceIndex": { "type": "number" },
+        "prevEventHash": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "category": { "type": "string" },
+        "severity": { "type": "string" },
+        "actor": { "type": "string" },
+        "action": { "type": "string" },
+        "blockHash": { "type": "string" }
+      },
+      "required": ["id", "sequenceIndex", "prevEventHash", "timestamp", "category", "severity", "actor", "action", "blockHash"]
+    }
+  },
+  "firestore": {
+    "/treasury/state": {
+      "schema": "TreasuryState",
+      "description": "Global treasury state document"
+    },
+    "/journal/{journalId}": {
+      "schema": "DoubleEntryJournal",
+      "description": "Immutable ledger transactions"
+    },
+    "/auditEvents/{eventId}": {
+      "schema": "AuditEvent",
+      "description": "Hash-chained audit log records"
+    }
+  }
+}
